@@ -1,0 +1,27 @@
+{
+  "name": "@fastline/tmp-wordpress-and-traefik-server",
+  "version": "1.0.0",
+  "description": "A template for Fastline library which bootstrap a Docker setup with a Wordpress application and Traefik. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "wordpress",
+    "docker",
+    "node"
+  ],
+  "author": "info@alessandrobarbieri.net",
+  "license": "GPL-2.0-or-later",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/a-barbieri/fastline.git"
+  },
+  "bugs": {
+    "url": "https://github.com/a-barbieri/fastline/issues"
+  },
+  "homepage": "https://github.com/a-barbieri/fastline#readme",
+  "engines": {
+    "node": ">=10"
+  }
+}
