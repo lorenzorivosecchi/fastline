@@ -1,6 +1,8 @@
 # fastline
 Architectural foundation for a website lifecycle. From local setup to continuous deployment.
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/344aba61a44f2e0b5ad7/maintainability)](https://codeclimate.com/github/a-barbieri/fastline/maintainability)
+
 ## Quick start
 
 TODO
