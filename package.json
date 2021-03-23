@@ -5,6 +5,7 @@
   "repository": "git@github.com:lorenzorivosecchi/fastline.git",
   "author": "Lorenzo Rivosecchi <lorenzo.rivosecchi@lacolonia.studio>",
   "license": "MIT",
+  "private": "true",
   "devDependencies": {
     "lerna": "^4.0.0"
   },
