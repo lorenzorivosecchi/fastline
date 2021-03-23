@@ -1,0 +1,14 @@
+{
+  "name": "fastline",
+  "version": "0.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:lorenzorivosecchi/fastline.git",
+  "author": "Lorenzo Rivosecchi <lorenzo.rivosecchi@lacolonia.studio>",
+  "license": "MIT",
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}
