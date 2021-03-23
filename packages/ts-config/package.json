@@ -2,5 +2,8 @@
   "name": "@fastline/ts-config",
   "version": "0.0.0",
   "main": "tsconfig.json",
-  "license": "MIT"
+  "license": "MIT",
+  "engines": {
+    "node": ">=10.0.0"
+  }
 }
