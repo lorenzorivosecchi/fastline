@@ -1,6 +1,16 @@
 {
   "name": "@fastline/core",
   "version": "0.0.0",
-  "main": "index.js",
-  "license": "MIT"
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "tsc"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@fastline/ts-config": "^0.0.0"
+  },
+  "peerDependencies": {
+    "typescript": "^4.2.3"
+  }
 }
