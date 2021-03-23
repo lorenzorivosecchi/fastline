@@ -8,9 +8,16 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@fastline/ts-config": "^0.0.0"
+    "@fastline/ts-config": "^0.0.0",
+    "fs-extra": "^9.1.0",
+    "node-emoji": "^1.10.0",
+    "replace-in-file": "^6.2.0"
   },
   "peerDependencies": {
     "typescript": "^4.2.3"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^9.0.8",
+    "@types/node-emoji": "^1.8.1"
   }
 }
