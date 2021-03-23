@@ -1,7 +1,7 @@
-import Fastline from "../src";
+import fastline from "../src";
 
-describe("Fastline", () => {
+describe("fastline", () => {
   it("exists", () => {
-    expect(Fastline).toBeTruthy();
+    expect(fastline).toBeTruthy();
   });
 });
