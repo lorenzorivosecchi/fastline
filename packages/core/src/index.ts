@@ -24,10 +24,10 @@ async function fastline(options: IOptions) {
   try {
     sourceFiles = await fs.readdir(srcDir);
   } catch (err) {
-    throw new Error("template source directory doesn't exist.");
+    throw new Error("Source directory doesn't exist.");
   }
   if (sourceFiles.length === 0) {
-    throw new Error("template source directory doesn't have any files.");
+    throw new Error("Source directory doesn't have any files.");
   }
 
   // Create out directory if it doesn't exist
@@ -36,11 +36,11 @@ async function fastline(options: IOptions) {
   // Verify that out directory is empty.
   const outFiles = await fs.readdir(outDir);
   if (outFiles.length > 0) {
-    throw new Error("outDir must point to an empty directory");
+    throw new Error("Output directory is not empty");
   }
 
   console.log(
-    `${emoji.gear} Copying template directory into ${path.resolve(outDir)}...`
+    `${emoji.gear} Copying source directory into ${path.resolve(outDir)}...`
   );
 
   // Copy template into the output directory.
@@ -55,7 +55,7 @@ async function fastline(options: IOptions) {
   const subsValues = subsKeys.map((key) => substitutions[key]);
 
   console.log(
-    `${emoji.gear} Running a search and replace on ${sourceFiles.length} files...`
+    `${emoji.gear} Performing a find and replace on ${sourceFiles.length} files...`
   );
 
   await replaceInFile({
