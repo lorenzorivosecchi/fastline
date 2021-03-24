@@ -3,7 +3,7 @@ import * as fs from "fs-extra";
 import { emoji } from "node-emoji";
 import { replaceInFile } from "replace-in-file";
 
-interface IOptions {
+export interface FastlineOptions {
   /** Path to the directory to copy from */
   srcDir: string;
   /** Path to the directory to copy into */
@@ -12,7 +12,7 @@ interface IOptions {
   substitutions: Record<string, string>;
 }
 
-async function fastline(options: IOptions) {
+async function fastline(options: FastlineOptions) {
   const { srcDir, outDir, substitutions } = options;
 
   // =====================
