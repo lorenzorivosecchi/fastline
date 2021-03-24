@@ -1,7 +1,7 @@
 {
   "name": "@fastline/cli",
   "version": "0.0.0",
-  "main": "./src/index.js",
+  "main": "./dist/index.js",
   "license": "MIT",
   "scripts": {
     "test": "jest",

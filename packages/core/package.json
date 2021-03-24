@@ -1,7 +1,7 @@
 {
   "name": "@fastline/core",
   "version": "0.0.0",
-  "main": "./src/index.js",
+  "main": "./dist/index.js",
   "scripts": {
     "test": "jest",
     "build": "tsc"
