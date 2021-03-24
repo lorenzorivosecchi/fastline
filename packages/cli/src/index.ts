@@ -21,7 +21,7 @@ async function main() {
   await fastline({
     outDir: outDir,
     srcDir: selectedTemplate,
-    substitutions: {},
+    findAndReplace: {},
   });
 
   console.log("Done");

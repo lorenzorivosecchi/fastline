@@ -9,11 +9,11 @@ export interface FastlineOptions {
   /** Path to the directory to copy into */
   outDir: string;
   /** A dictionary used to perform a find and replace on the source files */
-  substitutions: Record<string, string>;
+  findAndReplace: Record<string, string>;
 }
 
 async function fastline(options: FastlineOptions) {
-  const { srcDir, outDir, substitutions } = options;
+  const { srcDir, outDir, findAndReplace } = options;
 
   // =====================
   //  Copy template files
@@ -50,9 +50,9 @@ async function fastline(options: FastlineOptions) {
   //  Apply Substitutions
   // =====================
 
-  const subsKeys = Object.keys(substitutions);
+  const subsKeys = Object.keys(findAndReplace);
   const subsKeysRegex = subsKeys.map((key) => new RegExp(key, "g"));
-  const subsValues = subsKeys.map((key) => substitutions[key]);
+  const subsValues = subsKeys.map((key) => findAndReplace[key]);
 
   console.log(
     `${emoji.gear} Performing a find and replace on ${sourceFiles.length} files...`

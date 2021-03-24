@@ -2,10 +2,12 @@ import path from "path";
 import fs from "fs-extra";
 import { FastlineOptions } from "@fastline/core";
 
-type TemplateConfig = Pick<FastlineOptions, "substitutions">;
+type TemplateConfig = Pick<FastlineOptions, "findAndReplace">;
 
 const isTemplateConfig = (config: any): config is TemplateConfig => {
-  return typeof config === "object" && typeof config.substitutions === "object";
+  return (
+    typeof config === "object" && typeof config.findAndReplace === "object"
+  );
 };
 
 export const loadTemplateConfig = async (dir: string): Promise<{} | void> => {
