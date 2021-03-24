@@ -9,12 +9,16 @@
   },
   "dependencies": {
     "@fastline/core": "^0.0.0",
-    "@fastline/ts-config": "^0.0.0"
+    "@fastline/ts-config": "^0.0.0",
+    "inquirer": "^8.0.0"
   },
   "peerDependencies": {
     "typescript": "^4.2.3"
   },
   "bin": {
     "fastline": "./dist/index.js"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^7.3.1"
   }
 }
