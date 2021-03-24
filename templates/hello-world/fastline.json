@@ -1,5 +1,5 @@
 {
-  "substitutions": {
-    "name": ""
+  "findAndReplace": {
+    "%%name%%": ""
   }
 }

@@ -7,24 +7,24 @@ type SingleAnswer = {
 };
 
 export const getOutputDirectory = async (): Promise<string> => {
-  const answers = await prompt<SingleAnswer>({
+  const answer = await prompt<SingleAnswer>({
     type: "input",
     name: "value",
     message: "Enter the path to your directory",
     default: `${process.cwd()}/myapp`,
   });
-  return answers.value;
+  return answer.value;
 };
 
 export const getTemplatesRoot = async (): Promise<string> => {
-  const answers = await prompt<SingleAnswer>({
+  const answer = await prompt<SingleAnswer>({
     type: "input",
     name: "value",
     message:
       "Choose a template directory or use the default templates (hit ENTER to select default)",
     default: path.resolve(__dirname, "../templates"),
   });
-  return answers.value;
+  return answer.value;
 };
 
 export const getSelectedTemplate = async (rootDir: string): Promise<string> => {
@@ -36,11 +36,23 @@ export const getSelectedTemplate = async (rootDir: string): Promise<string> => {
     // Filter directories
     .filter((filePath) => fs.statSync(filePath).isDirectory());
 
-  const answers = await prompt<SingleAnswer>({
+  const answer = await prompt<SingleAnswer>({
     type: "list",
     name: "value",
     message: "Choose a template",
     choices: availableTemplates,
   });
-  return answers.value;
+  return answer.value;
+};
+
+export const getMatcherReplacement = async (
+  matcher: string,
+  defaultReplace?: string
+): Promise<string> => {
+  const answer = await prompt<SingleAnswer>({
+    name: "value",
+    message: `Replace ${matcher} with ...`,
+    default: defaultReplace,
+  });
+  return answer.value;
 };

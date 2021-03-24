@@ -2,9 +2,9 @@ import path from "path";
 import fs from "fs-extra";
 import { FastlineOptions } from "@fastline/core";
 
-type TemplateConfig = Pick<FastlineOptions, "findAndReplace">;
+export type TemplateConfig = Pick<FastlineOptions, "findAndReplace">;
 
-const isTemplateConfig = (config: any): config is TemplateConfig => {
+export const isTemplateConfig = (config: any): config is TemplateConfig => {
   return (
     typeof config === "object" && typeof config.findAndReplace === "object"
   );
@@ -13,19 +13,12 @@ const isTemplateConfig = (config: any): config is TemplateConfig => {
 export const loadTemplateConfig = async (dir: string): Promise<{} | void> => {
   const configPath = path.join(dir, "fastline.json");
 
-  let config;
-
   try {
-    config = await fs.readJSON(configPath);
+    return await fs.readJSON(configPath);
   } catch (err) {
     if (err.code === "ENOENT") {
       console.warn("Template doesn't have a config file");
     }
+    console.trace(err.message);
   }
-
-  if (isTemplateConfig(config)) {
-    console.warn("Template config file is invalid");
-  }
-
-  return config;
 };

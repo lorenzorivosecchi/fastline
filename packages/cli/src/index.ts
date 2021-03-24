@@ -2,11 +2,12 @@
 
 import fastline from "@fastline/core";
 import {
+  getMatcherReplacement,
   getOutputDirectory,
   getSelectedTemplate,
   getTemplatesRoot,
 } from "./prompts";
-import { loadTemplateConfig } from "./config";
+import { isTemplateConfig, loadTemplateConfig, TemplateConfig } from "./config";
 
 async function main() {
   console.log("Fastline CLI");
@@ -14,34 +15,32 @@ async function main() {
   const outDir = await getOutputDirectory();
   const templatesRoot = await getTemplatesRoot();
   const selectedTemplate = await getSelectedTemplate(templatesRoot);
+
   const templateConfig = await loadTemplateConfig(selectedTemplate);
 
-  console.log(templateConfig);
+  let templateFAR: TemplateConfig["findAndReplace"] = {};
+  let customizedFAR: typeof templateFAR = {};
+
+  if (isTemplateConfig(templateConfig)) {
+    templateFAR = templateConfig.findAndReplace;
+  }
+
+  await Promise.all(
+    Object.keys(templateFAR).map(async (key) => {
+      const matcher = key;
+      const defaultReplace = templateFAR[key];
+      const replace = await getMatcherReplacement(matcher, defaultReplace);
+      customizedFAR[key] = replace;
+    })
+  );
 
   await fastline({
     outDir: outDir,
     srcDir: selectedTemplate,
-    findAndReplace: {},
+    findAndReplace: customizedFAR,
   });
 
   console.log("Done");
 }
 
 main();
-
-// async function getSubstitutionPair() {
-
-//   const answers = await prompt([
-//     {
-//       message: "Enter a regex string",
-//       default: "/something/g",
-//     },
-//     {
-//       type: "confirm",
-//       name: "askAgain",
-//       message: "Want to enter another substitution (just hit enter for YES)?",
-//       default: true,
-//     },
-//   ]);
-
-// }
