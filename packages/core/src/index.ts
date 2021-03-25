@@ -40,7 +40,7 @@ async function fastline(options: FastlineOptions) {
   }
 
   console.log(
-    `${emoji.gear} Copying source directory into ${path.resolve(outDir)}...`
+    `${emoji.gear}\tCopying source directory into ${path.resolve(outDir)}...`
   );
 
   // Copy template into the output directory.
@@ -55,7 +55,7 @@ async function fastline(options: FastlineOptions) {
   const subsValues = subsKeys.map((key) => findAndReplace[key]);
 
   console.log(
-    `${emoji.gear} Performing a find and replace on ${sourceFiles.length} files...`
+    `${emoji.gear}\tPerforming a find and replace on ${sourceFiles.length} files...`
   );
 
   await replaceInFile({
